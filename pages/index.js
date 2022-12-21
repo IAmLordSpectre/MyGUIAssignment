@@ -196,7 +196,6 @@ export default function Home() {
               </ThankContext.Provider>
               <div className="bg-blue-500 flex flex-col w-full border border-gray-900 rounded-lg px-8 py-8">
                 <form
-                  method="POST"
                   name="report"
                   enctype="multipart/form-data"
                   className="flex flex-col space-y-4 mt-2"
@@ -254,7 +253,7 @@ export default function Home() {
                     Report Upload
                   </label>
                   <input
-                    name="Report"
+                    name="report"
                     type="file"
                     formControlName="amount"
                     placeholder="Amount in INR"
