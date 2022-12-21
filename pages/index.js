@@ -137,8 +137,8 @@ export default function Home() {
       let downloads = res.data;
       let downloadData = downloads.map((download) => {
         let down = download.data;
-        const { FullName, MatricNumber, Section, datetime, remark, Report } =
-          down;
+        console.log(down);
+        const { FullName, MatricNumber, Section, datetime, remark } = down;
 
         return {
           Name: FullName,
@@ -146,7 +146,6 @@ export default function Home() {
           Section: Section,
           DateTime: datetime,
           Remark: remark,
-          Report: Report.url,
         };
       });
       setdownload(downloadData);
