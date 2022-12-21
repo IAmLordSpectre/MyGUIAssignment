@@ -199,7 +199,6 @@ export default function Home() {
                 <form
                   method="POST"
                   name="report"
-                  action="/thankyou"
                   enctype="multipart/form-data"
                   className="flex flex-col space-y-4 mt-2"
                 >
