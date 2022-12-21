@@ -167,10 +167,13 @@ export default function Home() {
 
   return (
     <>
-      <div className="md:flex md:items-center md:justify-center w-full p-8 sm:rounded-lg md:rounded-none">
+      <div className="md:flex md:items-center md:justify-center w-full md:p-8 p-2  sm:rounded-lg md:rounded-none">
         <div className="max-w-xl w-full space-y-12">
           <div className="w-full lg:text-left text-center">
             <div className="w-full flex items-center flex-col justify-center">
+              <h1 className="text-center text-xl pb-3">
+                GUI REPORT SUBMISSION PROJECT
+              </h1>
               {session ? (
                 <button
                   onClick={() => router.push("api/auth/signout")}
