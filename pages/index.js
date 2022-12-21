@@ -215,7 +215,7 @@ export default function Home() {
                   <input
                     type="text"
                     id="fullname"
-                    name="MatricNo"
+                    name="Name"
                     placeholder=""
                     className="border rounded-lg py-3 px-3 mt-4 bg-white border-indigo-600 placeholder-white-500 text-black"
                     required
