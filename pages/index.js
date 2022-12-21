@@ -143,9 +143,9 @@ export default function Home() {
         return {
           Name: Name,
           Matric: Matric,
-          Section: Category,
+          Category: Category,
           DateTime: datetime,
-          Remark: remark,
+          Status: remark,
           Report: Report.url,
         };
       });
