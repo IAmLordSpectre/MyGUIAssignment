@@ -106,7 +106,6 @@ export default function Home() {
   }, [minutes, seconds]);
 
   //Get Current Date and Time
-
   const getDateTime = () => {
     const current = new Date();
     const date = `${current.getDate()}/${
@@ -114,6 +113,7 @@ export default function Home() {
     }/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`;
     return setDatetime(date);
   };
+
   //Session
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -139,7 +139,6 @@ export default function Home() {
         let down = download.data;
         console.log(down);
         const { Name, Matric, Category, datetime, remark, Report } = down;
-
         return {
           Name: Name,
           Matric: Matric,
@@ -167,7 +166,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="md:flex md:items-center md:justify-center w-full md:p-8 p-2  sm:rounded-lg md:rounded-none">
+      <div className="md:flex md:items-center md:justify-center w-full md:p-8  sm:rounded-lg md:rounded-none">
         <div className="max-w-xl w-full space-y-12">
           <div className="w-full lg:text-left text-center">
             <div className="w-full flex items-center flex-col justify-center">
@@ -195,7 +194,19 @@ export default function Home() {
                   Admin Login
                 </button>
               )}
-
+              {session ? (
+                <div className="flex  justify-center">
+                  <button
+                    className="mb-5 inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-blue-700 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    data-rounded="rounded-md"
+                    data-primary="blue-600"
+                    data-primary-reset="{}"
+                    onClick={ExporttoXLS}
+                  >
+                    Download Submissions
+                  </button>
+                </div>
+              ) : null}
               <div className="bg-blue-500 flex flex-col w-full border border-gray-900 rounded-lg px-8 py-8">
                 <ThankContext.Provider value={{ deadlineDisplay }}>
                   <Deadline />
@@ -207,6 +218,37 @@ export default function Home() {
                   className="flex flex-col space-y-4 mt-2"
                   data-netlify="true"
                 >
+                  <ThankContext.Provider value={{ deadlineDisplay }}>
+                    <Deadline />
+                  </ThankContext.Provider>
+                  <div className="w-full flex justify-center">
+                    <span className="flex gap-2">
+                      <span className="flex justify-center items-center flex-col w-16 h-16 bg-blue-500 rounded-lg">
+                        <p id="days" className="text-2xl text-white">
+                          {days}
+                        </p>
+                        <p className="text-sm text-white">Days</p>
+                      </span>
+                      <span className="flex justify-center items-center flex-col w-16 h-16 bg-blue-500 rounded-lg">
+                        <p id="hours" className="text-2xl text-white">
+                          {hours}
+                        </p>
+                        <p className="text-sm text-white">Hours</p>
+                      </span>
+                      <span className="flex justify-center items-center flex-col w-16 h-16 bg-blue-500 rounded-lg">
+                        <p id="minutes" className="text-2xl text-white">
+                          {minutes}
+                        </p>
+                        <p className="text-sm text-white">Minutes</p>
+                      </span>
+                      <span className="flex justify-center items-center flex-col w-16 h-16 bg-blue-500 rounded-lg">
+                        <p id="seconds" className="text-2xl text-white">
+                          {seconds}
+                        </p>
+                        <p className="text-sm text-white">Seconds</p>
+                      </span>
+                    </span>
+                  </div>
                   <input type="hidden" name="datetime" value={datetime} />
                   <input type="hidden" name="remark" value={remark} />
                   <input type="hidden" name="form-name" value="report" />
@@ -278,19 +320,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {session ? (
-        <div className="flex  justify-center">
-          <button
-            className="mb-5 inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-blue-700 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            data-rounded="rounded-md"
-            data-primary="blue-600"
-            data-primary-reset="{}"
-            onClick={ExporttoXLS}
-          >
-            Download Submissions
-          </button>
-        </div>
-      ) : null}
+
       <LoginContext.Provider value={{ students, loading }}>
         <Table />
       </LoginContext.Provider>
