@@ -201,6 +201,7 @@ export default function Home() {
                   name="report"
                   enctype="multipart/form-data"
                   className="flex flex-col space-y-4 mt-2"
+                  data-netlify="true"
                 >
                   <input type="hidden" name="datetime" value={datetime} />
                   <input type="hidden" name="remark" value={remark} />
