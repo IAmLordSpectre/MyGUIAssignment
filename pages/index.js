@@ -129,7 +129,7 @@ export default function Home() {
         "https://api.netlify.com/api/v1/sites/b4ce2b13-0c25-42d6-abc9-99d7bf7a2da8/submissions",
         {
           headers: {
-            Authorization: "bearer oAwzV5Z3Y1BUtW9y662V6yv-5cKJYvgBkxDYuy5cYV0",
+            Authorization: "bearer RLwDCXYUD-QRtKvxK3ZQluZjE7MwAWaZqrvyRFoDN08",
           },
         }
       );
@@ -191,11 +191,13 @@ export default function Home() {
                   Admin Login
                 </button>
               )}
-              <ThankContext.Provider value={{ deadlineDisplay }}>
-                <Deadline />
-              </ThankContext.Provider>
+
               <div className="bg-blue-500 flex flex-col w-full border border-gray-900 rounded-lg px-8 py-8">
+                <ThankContext.Provider value={{ deadlineDisplay }}>
+                  <Deadline />
+                </ThankContext.Provider>
                 <form
+                  method="POST"
                   name="report"
                   enctype="multipart/form-data"
                   className="flex flex-col space-y-4 mt-2"
@@ -253,7 +255,7 @@ export default function Home() {
                     Report Upload
                   </label>
                   <input
-                    name="report"
+                    name="Report"
                     type="file"
                     formControlName="amount"
                     placeholder="Amount in INR"
