@@ -197,14 +197,15 @@ export default function Home() {
               </ThankContext.Provider>
               <div className="bg-blue-500 flex flex-col w-full border border-gray-900 rounded-lg px-8 py-8">
                 <form
-                  action="https://formsubmit.co/nosachristy1@gmail.com"
                   method="POST"
-                  id="form"
+                  name="report"
+                  action="/thankyou"
+                  enctype="multipart/form-data"
                   className="flex flex-col space-y-4 mt-2"
                 >
                   <input type="hidden" name="datetime" value={datetime} />
                   <input type="hidden" name="remark" value={remark} />
-                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="form-name" value="report" />
                   <label
                     className=" flex font-bold text-lg text-white items-start"
                     for="fullname"
