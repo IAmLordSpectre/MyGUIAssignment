@@ -126,10 +126,10 @@ export default function Home() {
       setLoading(true);
 
       const res = await axios.get(
-        "https://api.netlify.com/api/v1/sites/b5c57396-6b17-4c15-882c-18c89ce8a5b3/submissions",
+        "https://api.netlify.com/api/v1/sites/b4ce2b13-0c25-42d6-abc9-99d7bf7a2da8/submissions",
         {
           headers: {
-            Authorization: "bearer IkTYCDR_LxGCeiP8VYas5T0Vv7jn73V29jQtbx20MdQ",
+            Authorization: "bearer oAwzV5Z3Y1BUtW9y662V6yv-5cKJYvgBkxDYuy5cYV0",
           },
         }
       );
@@ -255,6 +255,7 @@ export default function Home() {
                     Report Upload
                   </label>
                   <input
+                    name="Report"
                     type="file"
                     formControlName="amount"
                     placeholder="Amount in INR"
